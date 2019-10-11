@@ -5,6 +5,6 @@ Redux Patterns
 
 ## Visualizing Redux
 
-![](assets/img/react-visualization.png)
+![](assets/img/redux-visualization.png)
 
 ---?include=actions/PITCHME.md
