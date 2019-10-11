@@ -5,4 +5,6 @@ Redux Patterns
 
 ## Visualizing Redux
 
----?include=actions/PITCHME.md
+---?include=slides/reducers/PITCHME.md
+
+---?include=slides/actions/PITCHME.md
