@@ -1,5 +1,1 @@
-Hello World
-
----
-
-The end
+--?include=redux-patterns/actions/PITCHME.md
