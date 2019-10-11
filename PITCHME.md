@@ -1,9 +1,13 @@
 Redux Patterns
 ==============
 
----?image=assets/img/redux-visualization.png&size=auto 85%&position=bottom
+@snap[midpoint span-90]
 
 ## Visualizing Redux
+
+![](assets/img/redux-visualization.png)
+
+@snapend
 
 ---?include=slides/reducers/PITCHME.md
 
