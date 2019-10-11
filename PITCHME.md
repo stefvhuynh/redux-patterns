@@ -1,1 +1,1 @@
---?include=redux-patterns/actions/PITCHME.md
+---?include=redux-patterns/actions/PITCHME.md
