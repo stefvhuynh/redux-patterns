@@ -1,10 +1,8 @@
 Redux Patterns
 ==============
 
----
+---?image=assets/img/redux-visualization.png&size=75%
 
 ## Visualizing Redux
-
----?image=assets/img/redux-visualization.png&size=75%
 
 ---?include=actions/PITCHME.md
