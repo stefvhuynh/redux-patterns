@@ -1,7 +1,7 @@
 Redux Patterns
 ==============
 
----?image=assets/img/redux-visualization.png&size=75%
+---?image=assets/img/redux-visualization.png&position=bottom
 
 ## Visualizing Redux
 
