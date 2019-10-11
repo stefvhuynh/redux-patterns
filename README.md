@@ -9,7 +9,7 @@
 
 ## Visualizing Redux
 
-![](assets/img/visualizing-redux.png)
+![](assets/img/redux-visualization.png)
 
 ## Reducers and State
 
