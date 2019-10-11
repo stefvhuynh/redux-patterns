@@ -1,7 +1,9 @@
 Redux Patterns
 ==============
 
-@snap[midpoint span-90]
+---
+
+@snap[midpoint span-95]
 
 ## Visualizing Redux
 
