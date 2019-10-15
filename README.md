@@ -96,7 +96,7 @@ reducers.
 
 #### Entity Reducers
 
-Entity reducers are reducers that deal with data entities, typically retrieved from an API
+Entity reducers are reducers that deal with data entities, typically retrieved from a server
 endpoint. There are many ways to construct the state tree to house these entities, but typically,
 you will want some kind of key-value dictionary with ids pointing to objects. A very simple example
 of an entity slice of state might look something like the following:
@@ -112,7 +112,7 @@ of an entity slice of state might look something like the following:
 
 In this example, we have a slice of state that stores products. The product's `sku` is known to be
 a unique identifier so it is used as the key. You will likely need to transform the data from the
-API into this format. This work can be done in the reducer when it receives the payload from the
+server into this format. This work can be done in the reducer when it receives the payload from the
 server.
 
 A key-value dictionary allows for instant lookup and should be used by other parts of your app to
@@ -280,6 +280,10 @@ const mapDispatchToProps = dispatch => ({
 Other containers that need to launch a modal would also `dispatch` the `openModal` action and pass
 a modal string. In this scenario, each container needs to know what modal it's supposed to launch.
 
+This paradigm lends itself to redux-thunk as thunks are essentially async commands. This paradigm
+can still work with redux-saga if sagas are treated similarly to reducers, in that they provide
+commands as an API for interacting with them.
+
 ### Actions as Events
 
 In this paradigm, actions represent events that occured outside of the store. This includes user
@@ -349,6 +353,10 @@ const modalReducer = (state = modalInitialState, { type, payload }) => {
   }
 };
 ```
+
+This paradigm lends itself to redux-saga as sagas are watchers and listen for actions as if they
+were events. This paradigm can still work with redux-thunk but will require an extra convention and
+enforcement.
 
 ### Pros and Cons
 
