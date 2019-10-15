@@ -348,7 +348,7 @@ const modalReducer = (state = modalInitialState, { type, payload }) => {
     case TERMS_AND_CONDITIONS_CLICKED:
       return { ...state, currentModal: TERMS_AND_CONDITIONS_MODAL };
     case SIGN_IN_CLICKED:
-        return { ...state, currentModal: SIGN_IN_MODAL };
+      return { ...state, currentModal: SIGN_IN_MODAL };
     default:
       return state;
   }
