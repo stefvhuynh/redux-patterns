@@ -143,9 +143,9 @@ Container-specific selectors are composed of general access selectors and custom
 the data into the correct format for the container consuming it. Use reselect for a performance
 boost when writing selectors that require an operation greater than `O(1)`.
 
-Suppose you are tasked with displaying the cart page for a user in an ecommerce app. You have one
-entity reducers for all of the products that have been fetched in the app so far. You also have a
-domain specific cart view reducer. In the following code sample, we have general access selectors
+Suppose you are tasked with displaying the cart page for a user in an ecommerce app. You have an
+entity reducer for all of the products that have been fetched in the app so far. You also have a
+domain-specific cart view reducer. In the following code sample, we have general access selectors
 for the product entities and the products in cart as well as a container-specific selector for
 transforming our product data so that it is suitable for the product list component within the cart
 view.
@@ -186,7 +186,7 @@ will be discussed in more detail in the containers and components section.
 
 Additionally, the product entity likely has many more fields than four but in this particular case,
 the underlying React component only needs three fields. Blindly passing data from the store to
-components will undoubtedly lead to spaghetti code and data duplication down the line. It is
+components will inevitably lead to spaghetti code and data duplication down the line. It is
 recommended to format the data before it is passed into the React layer of the app and to only pass
 the data that is required in the component. By using selectors as a translation layer in the data
 flow, you will be able to maintain the integrity of the underlying data while also maintaining the
@@ -278,7 +278,8 @@ const mapDispatchToProps = dispatch => ({
 ```
 
 Other containers that need to launch a modal would also `dispatch` the `openModal` action and pass
-a modal string. In this scenario, each container needs to know what modal it's supposed to launch.
+a modal string. In this scenario, each container needs to know what modal it's supposed to launch,
+thus housing business logic closer in proximity to the React component tree than to the Redux store.
 
 This paradigm lends itself to redux-thunk as thunks are essentially async commands. This paradigm
 can still work with redux-saga if sagas are treated similarly to reducers, in that they provide
@@ -353,6 +354,11 @@ const modalReducer = (state = modalInitialState, { type, payload }) => {
   }
 };
 ```
+
+In this paradigm, the responsibility of documenting the modal logic lives within the reducers
+instead of the containers. Reducers listen for events and determine state mutations on their own,
+thus positioning the business logic in closer proximity to the Redux store than to the React
+component tree.
 
 This paradigm lends itself to redux-saga as sagas are watchers and listen for actions as if they
 were events. This paradigm can still work with redux-thunk but will require an extra convention and
