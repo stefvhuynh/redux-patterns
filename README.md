@@ -291,7 +291,7 @@ In this paradigm, actions represent events that occured outside of the store. Th
 interaction, server responses, etc. As a result, actions are coupled more to the containers and
 underlying component tree and represent _what happened in the past_. Containers will fire off these
 actions simply to inform your app that something happened. After that, it's up to the consumers of
-these action events to decide how to React. Reducers, in this case, act as _reactive watchers_.
+these action events to decide how to react. Reducers, in this case, act as _reactive watchers_.
 Actions should be labeled in the **past tense**.
 
 We will use the same example from above to illustrate what this might look like in code. Instead
