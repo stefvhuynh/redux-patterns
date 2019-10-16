@@ -319,7 +319,7 @@ const mapDispatchToProps = dispatch => ({
 // sign-up/container.js
 
 const mapDispatchToProps = dispatch => ({
-  onTermsAndConditionsClicked: productId => dispatch(termsAndConditionsClicked())
+  onTermsAndConditionsClicked: () => dispatch(termsAndConditionsClicked())
 });
 
 // home/container.js
