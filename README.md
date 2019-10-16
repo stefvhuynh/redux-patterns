@@ -324,7 +324,7 @@ const mapDispatchToProps = dispatch => ({
 
 // home/container.js
 
-const mapDispatchToProps = dispatch ({
+const mapDispatchToProps = dispatch => ({
   onSignInClicked: () => dispatch(signInClicked())
 });
 
