@@ -234,6 +234,7 @@ const closeModal = () => ({ type: CLOSE_MODAL });
 // reducers.js
 
 const cartInitialState = { productIds: [] };
+
 const cartReducer = (state = cartInitialState, { type, payload }) => {
   switch (type) {
     case ADD_PRODUCT_TO_CART:
@@ -244,6 +245,7 @@ const cartReducer = (state = cartInitialState, { type, payload }) => {
 };
 
 const modalInitialState = { currentModal: null };
+
 const modalReducer = (state = modalInitialState, { type, payload }) => {
   switch (type) {
     case OPEN_MODAL:
@@ -331,6 +333,7 @@ const mapDispatchToProps = dispatch => ({
 // reducers.js
 
 const cartInitialState = { productIds: [] };
+
 const cartReducer = (state = cartInitialState, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART_CLICKED:
@@ -341,6 +344,7 @@ const cartReducer = (state = cartInitialState, { type, payload }) => {
 };
 
 const modalInitialState = { currentModal: null };
+
 const modalReducer = (state = modalInitialState, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART_CLICKED:
