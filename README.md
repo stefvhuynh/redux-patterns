@@ -26,12 +26,12 @@ and avoiding highly-coupled spaghetti code.
 When writing code, always write from the perspective of the module you are building (keeping in mind
 that module's responsibilities) rather than from your personal high-level perspective. Future
 developers (including yourself in six months) will inherit your code, not what's in your mind as you
-are writing your code.
+are writing your code. To facilitate this, be sure to make each piece of code you write modular and
+reaonably readable without context.
 
-To illustrate the concept of perspective, consider the following example. Suppose you are tasked
-with adding add-to-cart functionality in a new part of your app. There already exists an API
-function for `POST`ing to the server and you come across the function definition as you begin
-implementation.
+Consider the following example. Suppose you are tasked with adding add-to-cart functionality in a new
+part of your app. There already exists an API function for `POST`ing to the server and you come across
+the function definition as you begin implementation.
 
 ```javascript
 // api.js
@@ -56,7 +56,7 @@ object is threaded into this function as well so you now have to search for and 
 which this function is defined. Of course, the `formatProduct` function definition calls another
 utility function that also receives the entire `product` object. You can see where this going. This
 is, unfortunately, extremely common. The developer, in this case, wrote their code from their own
-high-level perspective.
+high-level perspective and did not provide a clear, descriptive API for how to use this function.
 
 In the good example, the functions are written from the perspective of the functions, themselves.
 These functions don't know what else exists in the app. They can only accept arguments, do something
