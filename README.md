@@ -85,7 +85,7 @@ This layer is used to extract _and_ transform state data into a format that can 
 presentational layer. Selectors should have knowledge of the state tree and component props.
 
 Actions act as the communication channel between your containers and reducers. Depending on the
-paradigm you go with, actions will have knowledge of the containers _or_ the reducers, not both.
+pattern you go with, actions will have knowledge of the containers _or_ the reducers, not both.
 
 ## Reducers and State
 
@@ -200,11 +200,11 @@ _Forthcoming_
 ## Actions
 
 You can conceptualize actions in one of two ways: actions as commands and actions as events. You
-will need to agree to a paradigm that makes sense for your team and try to stick with it.
+will need to agree to a pattern that makes sense for your team and try to stick with it.
 
 ### Actions as Commands
 
-This is, by and far, the most common way people think of actions. In this paradigm, actions are
+This is, by and far, the most common way people think of actions. In this pattern, actions are
 typically coupled to reducers. Reducers essentially provide actions as an API to interact with the
 state that a particular reducer governs. Thus, actions serve as _commands that are issued_ which are
 then fulfilled by the reducers. Action types should be named `${VERB}_${NOUN}`.
@@ -283,13 +283,13 @@ Other containers that need to launch a modal would also `dispatch` the `openModa
 a modal string. In this scenario, each container needs to know what modal it's supposed to launch,
 thus housing business logic closer in proximity to the React component tree than to the Redux store.
 
-This paradigm lends itself to redux-thunk as thunks are essentially async commands. This paradigm
+This pattern lends itself to redux-thunk as thunks are essentially async commands. This pattern
 can still work with redux-saga if sagas are treated similarly to reducers, in that they provide
 commands as an API for interacting with them.
 
 ### Actions as Events
 
-In this paradigm, actions represent events that occured outside of the store. This includes user
+In this pattern, actions represent events that occured outside of the store. This includes user
 interaction, server responses, etc. As a result, actions are coupled more to the containers and
 underlying component tree and represent _what happened in the past_. Containers will fire off these
 actions simply to inform your app that something happened. After that, it's up to the consumers of
@@ -303,7 +303,7 @@ the reducers rather than spread across several disparate actions.
 
 Again, additional modals are shown in the sample code and in a real app, this code would be split
 into modules. The following replicates the functionality of the above example within the
-actions-as-events paradigm.
+actions-as-events pattern.
 
 ```javascript
 // actions.js
@@ -359,13 +359,14 @@ const modalReducer = (state = modalInitialState, { type, payload }) => {
 };
 ```
 
-In this paradigm, the responsibility of documenting the modal logic lives within the reducers
+In this pattern, the responsibility of documenting the modal logic lives within the reducers
 instead of the containers. Reducers listen for events and determine state mutations on their own,
 thus positioning the business logic in closer proximity to the Redux store than to the React
 component tree.
 
-This paradigm lends itself to redux-saga as sagas are watchers and listen for actions as if they
-were events. This paradigm can still work with redux-thunk but will require an extra convention and
+This pattern lends itself to redux-saga as sagas are watchers and listen for actions as if they
+were events. This pattern
+can still work with redux-thunk but will require an extra convention and
 enforcement.
 
 ### Pros and Cons
